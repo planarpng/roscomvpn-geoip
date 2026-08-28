@@ -74,21 +74,21 @@ jobs:
         working-directory: geoip
         run: |
           set -euo pipefail
-          ${{ env.CURL }} -ov whitelist.txt https://raw.githubusercontent.com/escapingworm/russia-whitelist/refs/heads/main/ru-whitelist-cidr.txt
-          ${{ env.CURL }} -ov antifilterdownloadcommunity.txt https://community.antifilter.download/list/community.lst
-          ${{ env.CURL }} -ov refilter.txt https://raw.githubusercontent.com/1andrevich/Re-filter-lists/refs/heads/main/ipsum.lst
-          ${{ env.CURL }} -ov refiltercommunity.txt https://raw.githubusercontent.com/1andrevich/Re-filter-lists/refs/heads/main/community_ips.lst
-          ${{ env.CURL }} -ov antifilternetwork.txt https://antifilter.network/download/ip.lst
-          #${{ env.CURL }} -ov antifilternetworkcommunity.txt https://antifilter.network/downloads/custom.lst
-          ${{ env.CURL }} -ov cdn.lst https://raw.githubusercontent.com/mansourjabin/cdn-ip-database/refs/heads/main/data/cdn.lst
-          ${{ env.CURL }} -ov merged.sum https://raw.githubusercontent.com/PentiumB/CDN-RuleSet/refs/heads/main/release/merged.sum
-          ${{ env.CURL }} -ov geolite_ru.lst https://raw.githubusercontent.com/hydraponique/countrydb/refs/heads/main/output/geolite2-geo-whois-asn-country-ipv4/ru.lst
-          ${{ env.CURL }} -ov geolite_by.lst https://raw.githubusercontent.com/hydraponique/countrydb/refs/heads/main/output/geolite2-geo-whois-asn-country-ipv4/by.lst
-          ${{ env.CURL }} -ov ipinfo_ru.lst https://raw.githubusercontent.com/Davoyan/ipinfo/refs/heads/main/geo/geoip/ru.lst
-          ${{ env.CURL }} -ov ipinfo_by.lst https://raw.githubusercontent.com/Davoyan/ipinfo/refs/heads/main/geo/geoip/by.lst
-          ${{ env.CURL }} -ov dbip_ru.lst https://raw.githubusercontent.com/hydraponique/countrydb/refs/heads/main/output/dbip-country-ipv4/ru.lst
-          ${{ env.CURL }} -ov dbip_by.lst https://raw.githubusercontent.com/hydraponique/countrydb/refs/heads/main/output/dbip-country-ipv4/by.lst
-          ${{ env.CURL }} -ov /tmp/GeoLite2-ASN-CSV.zip https://dl.netsyms.net/dbs/geolite2/GeoLite2-ASN-CSV.zip
+          ${{ env.CURL }} -v -o whitelist.txt https://raw.githubusercontent.com/escapingworm/russia-whitelist/refs/heads/main/ru-whitelist-cidr.txt
+          ${{ env.CURL }} -v -o antifilterdownloadcommunity.txt https://community.antifilter.download/list/community.lst
+          ${{ env.CURL }} -v -o refilter.txt https://raw.githubusercontent.com/1andrevich/Re-filter-lists/refs/heads/main/ipsum.lst
+          ${{ env.CURL }} -v -o refiltercommunity.txt https://raw.githubusercontent.com/1andrevich/Re-filter-lists/refs/heads/main/community_ips.lst
+          ${{ env.CURL }} -v -o antifilternetwork.txt https://antifilter.network/download/ip.lst
+          #${{ env.CURL }} -v -o antifilternetworkcommunity.txt https://antifilter.network/downloads/custom.lst
+          ${{ env.CURL }} -v -o cdn.lst https://raw.githubusercontent.com/mansourjabin/cdn-ip-database/refs/heads/main/data/cdn.lst
+          ${{ env.CURL }} -v -o merged.sum https://raw.githubusercontent.com/PentiumB/CDN-RuleSet/refs/heads/main/release/merged.sum
+          ${{ env.CURL }} -v -o geolite_ru.lst https://raw.githubusercontent.com/hydraponique/countrydb/refs/heads/main/output/geolite2-geo-whois-asn-country-ipv4/ru.lst
+          ${{ env.CURL }} -v -o geolite_by.lst https://raw.githubusercontent.com/hydraponique/countrydb/refs/heads/main/output/geolite2-geo-whois-asn-country-ipv4/by.lst
+          ${{ env.CURL }} -v -o ipinfo_ru.lst https://raw.githubusercontent.com/Davoyan/ipinfo/refs/heads/main/geo/geoip/ru.lst
+          ${{ env.CURL }} -v -o ipinfo_by.lst https://raw.githubusercontent.com/Davoyan/ipinfo/refs/heads/main/geo/geoip/by.lst
+          ${{ env.CURL }} -v -o dbip_ru.lst https://raw.githubusercontent.com/hydraponique/countrydb/refs/heads/main/output/dbip-country-ipv4/ru.lst
+          ${{ env.CURL }} -v -o dbip_by.lst https://raw.githubusercontent.com/hydraponique/countrydb/refs/heads/main/output/dbip-country-ipv4/by.lst
+          ${{ env.CURL }} -v -o /tmp/GeoLite2-ASN-CSV.zip https://dl.netsyms.net/dbs/geolite2/GeoLite2-ASN-CSV.zip
           unzip -j /tmp/GeoLite2-ASN-CSV.zip '*/GeoLite2-ASN-Blocks-*.csv' -d ./geolite2
           ls -l ./geolite2/
 
