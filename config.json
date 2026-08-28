@@ -147,6 +147,150 @@
       }
     },
     {
+      "type": "maxmindGeoLite2ASNCSV",
+      "action": "add",
+      "args": {
+        "ipv4": "./geolite2/GeoLite2-ASN-Blocks-IPv4.csv",
+        "ipv6": "./geolite2/GeoLite2-ASN-Blocks-IPv6.csv",
+        "wantedList": {
+          "cloudflare": [
+            "AS132892",
+            "AS13335",
+            "AS133877",
+            "AS139242",
+            "AS14789",
+            "AS202623",
+            "AS203898",
+            "AS209242",
+            "AS394536",
+            "AS395747"
+          ],
+          "telegram": [
+            "AS211157",
+            "AS44907",
+            "AS59930",
+            "AS62014",
+            "AS62041"
+          ],
+          "twitter": [
+            "AS13414",
+            "AS35995",
+            "AS54888",
+            "AS63179",
+            "AS8945"
+          ],
+          "akamai": [
+            "AS16625",
+            "AS20940",
+            "AS63949"
+          ],
+          "amazon": [
+            "AS14618",
+            "AS16509"
+          ],
+          "apple": [
+            "AS6185",
+            "AS714"
+          ],
+          "fastly": [
+            "AS394192",
+            "AS54113"
+          ],
+          "google": [
+            "AS15169",
+            "AS396982"
+          ],
+          "microsoft": [
+            "AS8068",
+            "AS8075"
+          ],
+          "anthropic": [
+            "AS399358"
+          ],
+          "asystems": [
+            "AS49559"
+          ],
+          "bytedance": [
+            "AS396986"
+          ],
+          "comnet": [
+            "AS42416"
+          ],
+          "digitalocean": [
+            "AS14061"
+          ],
+          "facebook": [
+            "AS32934"
+          ],
+          "hetzner": [
+            "AS24940"
+          ],
+          "inet": [
+            "AS44893"
+          ],
+          "oracle": [
+            "AS31898"
+          ],
+          "ovh": [
+            "AS16276"
+          ],
+          "taobao": [
+            "AS24429"
+          ],
+          "etc": [
+            "AS1136",
+            "AS12876",
+            "AS174",
+            "AS206238",
+            "AS207567",
+            "AS214623",
+            "AS215125",
+            "AS21949",
+            "AS399004",
+            "AS46475",
+            "AS4808",
+            "AS51430",
+            "AS60068",
+            "AS8560",
+            "AS9009"
+          ]
+        }
+      }
+    },
+    {
+      "type": "text",
+      "action": "add",
+      "args": {
+        "name": "cloudflare",
+        "uri": "https://www.cloudflare.com/ips-v4"
+      }
+    },
+    {
+      "type": "text",
+      "action": "add",
+      "args": {
+        "name": "cloudflare",
+        "uri": "https://www.cloudflare.com/ips-v6"
+      }
+    },
+    {
+      "type": "text",
+      "action": "add",
+      "args": {
+        "name": "telegram",
+        "uri": "https://core.telegram.org/resources/cidr.txt"
+      }
+    },
+    {
+      "type": "json",
+      "action": "add",
+      "args": {
+        "name": "fastly",
+        "uri": "https://api.fastly.com/public-ip-list",
+        "jsonPath": ["addresses", "ipv6_addresses"]
+      }
+    },
+    {
       "type": "text",
       "action": "add",
       "args": {
@@ -187,6 +331,15 @@
       "args": {
         "name": "direct",
         "uri": "./refiltercommunity.txt",
+        "onlyIPType": "ipv4"
+      }
+    },
+    {
+      "type": "text",
+      "action": "remove",
+      "args": {
+        "name": "direct",
+        "uri": "./antifilternetworkcommunity.txt",
         "onlyIPType": "ipv4"
       }
     },
@@ -268,15 +421,6 @@
           "0.0.0.0/8",
           "::/128"
         ]
-      }
-    },
-    {
-      "type": "text",
-      "action": "add",
-      "args": {
-        "name": "direct",
-        "uri": "./CUSTOM-FIX-ADD.txt",
-        "onlyIPType": "ipv4"
       }
     }
   ],
